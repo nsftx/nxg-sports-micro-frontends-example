@@ -1,44 +1,23 @@
-# .
+# Vue Micro-Frontend Example
 
-This template should help get you started developing with Vue 3 in Vite.
+This project demonstrates how to use the nxg-sports micro-frontends in a Vue 3 application (Vite).
 
-## Recommended IDE Setup
+## Purpose
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Integrates the sportsbook micro-frontend using Vue, showing how to consume shared code from `packages/shared`.
 
-## Recommended Browser Setup
+## Setup
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd) 
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+1. Install dependencies from the monorepo root:
+   ```sh
+   pnpm install
+   ```
+2. Start the development server:
+   ```sh
+   pnpm dev
+   ```
+3. Access the app at [http://localhost:5173](http://localhost:5173)
 
-## Customize configuration
+## More Info
 
-See [Vite Configuration Reference](https://vite.dev/config/).
-
-## Project Setup
-
-```sh
-pnpm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-pnpm dev
-```
-
-### Compile and Minify for Production
-
-```sh
-pnpm build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-pnpm lint
-```
+See the main [README.md](../../README.md) for details on integration and usage across frameworks.
