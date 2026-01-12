@@ -1,0 +1,13 @@
+{
+  "name": "@nsftx/nxg-sports-micro-frontends-example-shared",
+  "version": "1.0.0",
+  "description": "",
+  "exports": {
+    "./integrator": "./integrator.js",
+    "./constants": "./constants.js",
+    "./style": "./style.css"
+  },
+  "keywords": [],
+  "author": "",
+  "packageManager": "pnpm@10.18.2"
+}

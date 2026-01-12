@@ -1,0 +1,17 @@
+{
+  "name": "nxg-sports-micro-frontends-example",
+  "version": "1.0.0",
+  "description": "Example integrations of NXG Sports micro-frontends across multiple frameworks",
+  "main": "index.js",
+  "scripts": {
+    "dev:nextjs": "pnpm --filter nxg-sports-micro-frontends-nextjs-example dev",
+    "dev:svelte": "pnpm --filter nxg-sports-micro-frontends-svelte-example dev",
+    "dev:vue": "pnpm --filter nxg-sports-micro-frontends-vue-example dev",
+    "dev:vanilla": "pnpm --filter nxg-sports-micro-frontends-vanilla-example dev",
+    "build:nextjs": "pnpm --filter nxg-sports-micro-frontends-nextjs-example build",
+    "build:svelte": "pnpm --filter nxg-sports-micro-frontends-svelte-example build",
+    "build:vue": "pnpm --filter nxg-sports-micro-frontends-vue-example build",
+    "build:vanilla": "pnpm --filter nxg-sports-micro-frontends-vanilla-example build"
+  },
+  "packageManager": "pnpm@10.18.2"
+}
