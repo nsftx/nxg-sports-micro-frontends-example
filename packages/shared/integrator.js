@@ -3,10 +3,47 @@ import {
   ENVIRONMENT,
   SPORTSBOOK_FRAME_ID,
   RECOMMENDED_BETSLIPS_FRAME_ID,
-  RECOMMENDED_BETSLIPS_MICRO_FRONTEND_TAG,
+  PRIMARY_CDN,
+  SECONDARY_CDN,
 } from "./constants.js";
 
 let integrator = null;
+let microFrontendModulePromise = null;
+
+/**
+ * Loads micro-frontend module with CDN fallback support.
+ * The module is cached after the first successful load.
+ * @returns {Promise<{ registerSportsbookMicroFrontend: Function, registerRecommendedBetslipsWidget: Function }>}
+ */
+export const loadMicroFrontendModule = async () => {
+  if (microFrontendModulePromise) return microFrontendModulePromise;
+
+  microFrontendModulePromise = (async () => {
+    try {
+      // webpackIgnore is required for Next.js to load external URLs at runtime
+      return await import(/* webpackIgnore: true */ PRIMARY_CDN);
+    } catch (error) {
+      console.warn(
+        `[NXG Sports MicroFrontend Loader] Primary CDN failed (${PRIMARY_CDN}), attempting secondary CDN.`,
+        error
+      );
+    }
+
+    try {
+      // webpackIgnore is required for Next.js to load external URLs at runtime
+      return await import(/* webpackIgnore: true */ SECONDARY_CDN);
+    } catch (error) {
+      console.error(
+        `[NXG Sports MicroFrontend Loader] Both CDNs failed to load. Primary: ${PRIMARY_CDN}, Secondary: ${SECONDARY_CDN}`,
+        error
+      );
+      microFrontendModulePromise = null;
+      throw error;
+    }
+  })();
+
+  return microFrontendModulePromise;
+};
 
 export const createIntegratorInstance = (routerPush) => {
   if (typeof window !== "undefined" && window.igniteIntegrator) {

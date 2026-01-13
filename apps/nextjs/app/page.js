@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { MICRO_FRONTEND_URL } from "@nsftx/nxg-sports-micro-frontends-example-shared/constants";
+import { loadMicroFrontendModule } from "@nsftx/nxg-sports-micro-frontends-example-shared/integrator";
 
 export default function Home() {
   const router = useRouter();
@@ -14,10 +14,8 @@ export default function Home() {
   useEffect(() => {
     const loadWidget = async () => {
       if (!customElements.get("recommended-betslips")) {
-        const { registerRecommendedBetslipsWidget } = await import(
-          /* webpackIgnore: true */
-          MICRO_FRONTEND_URL
-        );
+        const { registerRecommendedBetslipsWidget } =
+          await loadMicroFrontendModule();
         registerRecommendedBetslipsWidget({});
       }
     };

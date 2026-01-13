@@ -1,8 +1,8 @@
-import { createIntegratorInstance } from "@nsftx/nxg-sports-micro-frontends-example-shared/integrator";
 import {
-  MICRO_FRONTEND_URL,
-  IGNITE_SDK_URL,
-} from "@nsftx/nxg-sports-micro-frontends-example-shared/constants";
+  createIntegratorInstance,
+  loadMicroFrontendModule,
+} from "@nsftx/nxg-sports-micro-frontends-example-shared/integrator";
+import { IGNITE_SDK_URL } from "@nsftx/nxg-sports-micro-frontends-example-shared/constants";
 import "@nsftx/nxg-sports-micro-frontends-example-shared/style";
 
 // Load Ignite SDK
@@ -15,7 +15,7 @@ let registerSportsbookMicroFrontend;
 let registerRecommendedBetslipsWidget;
 
 const loadMicroFrontends = async () => {
-  const module = await import(MICRO_FRONTEND_URL);
+  const module = await loadMicroFrontendModule();
   registerSportsbookMicroFrontend = module.registerSportsbookMicroFrontend;
   registerRecommendedBetslipsWidget = module.registerRecommendedBetslipsWidget;
 };

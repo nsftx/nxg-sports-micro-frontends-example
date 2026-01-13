@@ -1,9 +1,9 @@
 <script setup>
 import { onBeforeMount } from 'vue'
-import { MICRO_FRONTEND_URL } from '@nsftx/nxg-sports-micro-frontends-example-shared/constants'
+import { loadMicroFrontendModule } from '@nsftx/nxg-sports-micro-frontends-example-shared/integrator'
 
 onBeforeMount(async () => {
-  const { registerSportsbookMicroFrontend } = await import(MICRO_FRONTEND_URL)
+  const { registerSportsbookMicroFrontend } = await loadMicroFrontendModule()
 
   if (!customElements.get('nsftx-sports-web'))
     registerSportsbookMicroFrontend({

@@ -1,10 +1,10 @@
 <script>
 import { onMount } from 'svelte';
 import { goto } from '$app/navigation';
-import { MICRO_FRONTEND_URL } from '@nsftx/nxg-sports-micro-frontends-example-shared/constants';
+import { loadMicroFrontendModule } from '@nsftx/nxg-sports-micro-frontends-example-shared/integrator';
 
 onMount(async () => {
-	const { registerRecommendedBetslipsWidget } = await import(MICRO_FRONTEND_URL);
+	const { registerRecommendedBetslipsWidget } = await loadMicroFrontendModule();
 	if (!customElements.get('recommended-betslips')) registerRecommendedBetslipsWidget({});
 });
 </script>

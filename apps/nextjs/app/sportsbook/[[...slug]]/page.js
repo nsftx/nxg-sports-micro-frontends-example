@@ -1,16 +1,14 @@
 "use client";
 
 import { useEffect } from "react";
-import { MICRO_FRONTEND_URL } from "@nsftx/nxg-sports-micro-frontends-example-shared/constants";
+import { loadMicroFrontendModule } from "@nsftx/nxg-sports-micro-frontends-example-shared/integrator";
 
 export default function Sportsbook({ params }) {
   useEffect(() => {
     const registerSportsbook = async () => {
       if (!customElements.get("nsftx-sports-web")) {
-        const { registerSportsbookMicroFrontend } = await import(
-          /* webpackIgnore: true */
-          MICRO_FRONTEND_URL
-        );
+        const { registerSportsbookMicroFrontend } =
+          await loadMicroFrontendModule();
 
         registerSportsbookMicroFrontend({
           basePath: "/sportsbook",
