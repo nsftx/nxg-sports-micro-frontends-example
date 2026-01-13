@@ -5,8 +5,9 @@ export const TENANT_ID = "PROVIDED_TENANT_UUID";
 export const ENVIRONMENT = "staging";
 
 // CDN URLs for micro-frontend scripts with fallback support
-export const PRIMARY_CDN = "MICRO_FRONTENDS_PRIMARY_SCRIPT_URL";
-export const SECONDARY_CDN = "MICRO_FRONTENDS_SECONDARY_SCRIPT_URL";
+export const MICRO_FRONTENDS_PRIMARY_CDN = "MICRO_FRONTENDS_PRIMARY_SCRIPT_URL";
+export const MICRO_FRONTENDS_SECONDARY_CDN =
+  "MICRO_FRONTENDS_SECONDARY_SCRIPT_URL";
 
 // Ignite SDK URL (obtain from official NSoft documentation)
 export const IGNITE_SDK_URL = "IGNITE_PARENT_SCRIPT_URL";

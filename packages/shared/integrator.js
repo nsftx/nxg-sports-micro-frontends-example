@@ -3,8 +3,8 @@ import {
   ENVIRONMENT,
   SPORTSBOOK_FRAME_ID,
   RECOMMENDED_BETSLIPS_FRAME_ID,
-  PRIMARY_CDN,
-  SECONDARY_CDN,
+  MICRO_FRONTENDS_PRIMARY_CDN,
+  MICRO_FRONTENDS_MICRO_FRONTENDS_SECONDARY_CDN,
 } from "./constants.js";
 
 let integrator = null;
@@ -21,20 +21,24 @@ export const loadMicroFrontendModule = async () => {
   microFrontendModulePromise = (async () => {
     try {
       // webpackIgnore is required for Next.js to load external URLs at runtime
-      return await import(/* webpackIgnore: true */ PRIMARY_CDN);
+      return await import(
+        /* webpackIgnore: true */ MICRO_FRONTENDS_PRIMARY_CDN
+      );
     } catch (error) {
       console.warn(
-        `[NXG Sports MicroFrontend Loader] Primary CDN failed (${PRIMARY_CDN}), attempting secondary CDN.`,
+        `[NXG Sports MicroFrontend Loader] Primary CDN failed (${MICRO_FRONTENDS_PRIMARY_CDN}), attempting secondary CDN.`,
         error
       );
     }
 
     try {
       // webpackIgnore is required for Next.js to load external URLs at runtime
-      return await import(/* webpackIgnore: true */ SECONDARY_CDN);
+      return await import(
+        /* webpackIgnore: true */ MICRO_FRONTENDS_SECONDARY_CDN
+      );
     } catch (error) {
       console.error(
-        `[NXG Sports MicroFrontend Loader] Both CDNs failed to load. Primary: ${PRIMARY_CDN}, Secondary: ${SECONDARY_CDN}`,
+        `[NXG Sports MicroFrontend Loader] Both CDNs failed to load. Primary: ${MICRO_FRONTENDS_PRIMARY_CDN}, Secondary: ${MICRO_FRONTENDS_SECONDARY_CDN}`,
         error
       );
       microFrontendModulePromise = null;
