@@ -17,7 +17,12 @@ onBeforeMount(async () => {
   <div class="sportsbook-page">
     <header>Sportsbook</header>
     <div class="sportsbook-content">
-      <nsftx-sports-web id="sportsbook" />
+      <nsftx-sports-web id="sportsbook">
+        // eslint-disable-next-line vue/no-deprecated-slot-attribute
+        <div class="nsftx-sportsbook-footer" slot="nsftxFooter">
+          <span>Copyright © 2026</span>
+        </div>
+      </nsftx-sports-web>
     </div>
   </div>
 </template>

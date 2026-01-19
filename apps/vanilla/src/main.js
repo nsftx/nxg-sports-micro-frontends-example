@@ -53,7 +53,11 @@ const renderSportsbook = () => {
     <div class="sportsbook-page">
       <header>Sportsbook</header>
       <div class="sportsbook-content">
-        <nsftx-sports-web id="sportsbook"></nsftx-sports-web>
+        <nsftx-sports-web id="sportsbook">
+          <div class="nsftx-sportsbook-footer" slot="nsftxFooter">
+            <span>Copyright © 2026</span>
+        	</div>
+        </nsftx-sports-web>
       </div>
     </div>
   `;
@@ -81,7 +85,7 @@ const renderRoute = (path) => {
 };
 
 window.addEventListener("popstate", () =>
-  renderRoute(window.location.pathname)
+  renderRoute(window.location.pathname),
 );
 
 document.addEventListener("DOMContentLoaded", async () => {

@@ -4,7 +4,7 @@ import {
   SPORTSBOOK_FRAME_ID,
   RECOMMENDED_BETSLIPS_FRAME_ID,
   MICRO_FRONTENDS_PRIMARY_CDN,
-  MICRO_FRONTENDS_MICRO_FRONTENDS_SECONDARY_CDN,
+  MICRO_FRONTENDS_SECONDARY_CDN,
 } from "./constants.js";
 
 let integrator = null;
@@ -27,7 +27,7 @@ export const loadMicroFrontendModule = async () => {
     } catch (error) {
       console.warn(
         `[NXG Sports MicroFrontend Loader] Primary CDN failed (${MICRO_FRONTENDS_PRIMARY_CDN}), attempting secondary CDN.`,
-        error
+        error,
       );
     }
 
@@ -39,7 +39,7 @@ export const loadMicroFrontendModule = async () => {
     } catch (error) {
       console.error(
         `[NXG Sports MicroFrontend Loader] Both CDNs failed to load. Primary: ${MICRO_FRONTENDS_PRIMARY_CDN}, Secondary: ${MICRO_FRONTENDS_SECONDARY_CDN}`,
-        error
+        error,
       );
       microFrontendModulePromise = null;
       throw error;

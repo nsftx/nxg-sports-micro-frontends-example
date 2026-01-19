@@ -105,3 +105,10 @@ body {
     z-index: 10;
   }
 }
+
+.nsftx-sportsbook-footer {
+  padding: 1.5rem 0;
+  height: 7rem;
+  display: flex;
+  justify-content: center;
+}

@@ -13,6 +13,10 @@ onMount(async () => {
 <div class="sportsbook-page">
 	<header>Sportsbook</header>
 	<div class="sportsbook-content">
-		<nsftx-sports-web id="sportsbook"></nsftx-sports-web>
+		<nsftx-sports-web id="sportsbook">
+			<div class="nsftx-sportsbook-footer" slot="nsftxFooter">
+          		<span>Copyright © 2026</span>
+        	</div>
+		</nsftx-sports-web>
 	</div>
 </div>

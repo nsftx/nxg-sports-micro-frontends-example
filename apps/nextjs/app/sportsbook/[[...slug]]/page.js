@@ -24,7 +24,11 @@ export default function Sportsbook({ params }) {
     <div className="sportsbook-page">
       <header>Sportsbook</header>
       <div className="sportsbook-content">
-        <nsftx-sports-web id="sportsbook" />
+        <nsftx-sports-web id="sportsbook">
+          <div className="nsftx-sportsbook-footer" slot="nsftxFooter">
+            <span>Copyright © 2026</span>
+          </div>
+        </nsftx-sports-web>
       </div>
     </div>
   );
